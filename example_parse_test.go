@@ -8,6 +8,7 @@ import (
 )
 
 // This example shows how you can parse a simple RSS 2.0 feed.
+// The user must ensure that the input is UTF-8 encoded when parsing.
 func Example_parseRSS() {
 	input := `
 		<?xml version="1.0" encoding="UTF-8"?>
