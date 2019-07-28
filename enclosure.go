@@ -17,7 +17,7 @@ type Enclosure struct {
 // Create new type rss element.
 func NewEnclosure(url string, length int, t string) (*Enclosure, error) {
 	if len(url) == 0 || len(t) == 0 {
-		return nil, fmt.Errorf(`empty string passed to NewEnclosure().`)
+		return nil, fmt.Errorf(`empty string passed to NewEnclosure()`)
 	}
 	return &Enclosure{
 		XMLName: xml.Name{Local: `enclosure`},

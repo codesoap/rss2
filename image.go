@@ -20,7 +20,7 @@ type Image struct {
 // Create new rss image.
 func NewImage(url, title, link string) (*Image, error) {
 	if len(url) == 0 || len(title) == 0 || len(link) == 0 {
-		return nil, fmt.Errorf(`empty string passed to NewImage().`)
+		return nil, fmt.Errorf(`empty string passed to NewImage()`)
 	}
 	return &Image{
 		XMLName: xml.Name{Local: `image`},

@@ -15,7 +15,7 @@ type Source struct {
 // Create new source rss element.
 func NewSource(value, url string) (*Source, error) {
 	if len(value) == 0 || len(url) == 0 {
-		return nil, fmt.Errorf(`empty string passed to NewSource().`)
+		return nil, fmt.Errorf(`empty string passed to NewSource()`)
 	}
 	return &Source{
 		XMLName: xml.Name{Local: `source`},

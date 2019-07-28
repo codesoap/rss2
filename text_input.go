@@ -18,7 +18,7 @@ type TextInput struct {
 func NewTextInput(title, description, name, link string) (*TextInput, error) {
 	if len(title) == 0 || len(description) == 0 || len(name) == 0 ||
 		len(link) == 0 {
-		return nil, fmt.Errorf(`empty string passed to NewTextInput().`)
+		return nil, fmt.Errorf(`empty string passed to NewTextInput()`)
 	}
 	return &TextInput{
 		XMLName:     xml.Name{Local: `textInput`},

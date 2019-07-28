@@ -23,7 +23,7 @@ type Item struct {
 // Create a new rss item. Either title or description may be empty.
 func NewItem(title, description string) (*Item, error) {
 	if len(title) == 0 && len(description) == 0 {
-		return nil, fmt.Errorf(`cannot create item with empty title and description.`)
+		return nil, fmt.Errorf(`cannot create item with empty title and description`)
 	}
 	return &Item{
 		XMLName:     xml.Name{Local: `channel`},

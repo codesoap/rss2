@@ -33,7 +33,7 @@ type Channel struct {
 // Create a new rss channel.
 func NewChannel(title, link, description string) (*Channel, error) {
 	if len(title) == 0 || len(link) == 0 || len(description) == 0 {
-		return nil, fmt.Errorf(`empty string passed to NewChannel().`)
+		return nil, fmt.Errorf(`empty string passed to NewChannel()`)
 	}
 	return &Channel{
 		XMLName:     xml.Name{Local: `channel`},

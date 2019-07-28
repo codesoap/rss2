@@ -15,7 +15,7 @@ type Category struct {
 // Create new category rss element.
 func NewCategory(value string) (*Category, error) {
 	if len(value) == 0 {
-		return nil, fmt.Errorf(`empty string passed to NewCategory().`)
+		return nil, fmt.Errorf(`empty string passed to NewCategory()`)
 	}
 	return &Category{
 		XMLName: xml.Name{Local: `category`},

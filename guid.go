@@ -15,7 +15,7 @@ type GUID struct {
 // Create new guid rss element.
 func NewGUID(value string) (*GUID, error) {
 	if len(value) == 0 {
-		return nil, fmt.Errorf(`empty string passed to NewGUID().`)
+		return nil, fmt.Errorf(`empty string passed to NewGUID()`)
 	}
 	return &GUID{
 		XMLName: xml.Name{Local: `guid`},
