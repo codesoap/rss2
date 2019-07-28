@@ -22,12 +22,12 @@ func NewSkipDays(days []time.Weekday) *SkipDays {
 		time.Friday:    `Friday`,
 		time.Saturday:  `Saturday`,
 	}
-	var days_string []string
+	var daysString []string
 	for _, day := range days {
-		days_string = append(days_string, dayNames[day])
+		daysString = append(daysString, dayNames[day])
 	}
 	return &SkipDays{
 		XMLName: xml.Name{Local: `skipDays`},
-		Days:    days_string,
+		Days:    daysString,
 	}
 }
