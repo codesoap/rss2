@@ -21,7 +21,7 @@ type Channel struct {
 	Generator      string     `xml:"generator,omitempty"`
 	Docs           string     `xml:"docs,omitempty"`
 	Cloud          *Cloud     `xml:"cloud,omitempty"`
-	Ttl            int        `xml:"ttl,omitempty"`
+	TTL            int        `xml:"ttl,omitempty"`
 	Image          *Image     `xml:"image,omitempty"`
 	Rating         string     `xml:"rating,omitempty"`
 	TextInput      *TextInput `xml:"textInput,omitempty"`
