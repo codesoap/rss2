@@ -15,7 +15,7 @@ type Item struct {
 	Category    *Category  `xml:"category,omitempty"`
 	Comments    string     `xml:"comments,omitempty"`
 	Enclosure   *Enclosure `xml:"enclosure,omitempty"`
-	Guid        *Guid      `xml:"guid,omitempty"`
+	GUID        *GUID      `xml:"guid,omitempty"`
 	PubDate     *RSSTime   `xml:"pubDate,omitempty"`
 	Source      *Source    `xml:"source,omitempty"`
 }

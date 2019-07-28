@@ -6,18 +6,18 @@ import (
 )
 
 // An rss channel's guid element. The IsPermaLink attribute is optional.
-type Guid struct {
+type GUID struct {
 	XMLName     xml.Name `xml:"guid"`
 	Value       string   `xml:",chardata"`
 	IsPermaLink bool     `xml:"isPermaLink,attr,omitempty"`
 }
 
 // Create new guid rss element.
-func NewGuid(value string) (*Guid, error) {
+func NewGUID(value string) (*GUID, error) {
 	if len(value) == 0 {
-		return nil, fmt.Errorf(`empty string passed to NewGuid().`)
+		return nil, fmt.Errorf(`empty string passed to NewGUID().`)
 	}
-	return &Guid{
+	return &GUID{
 		XMLName: xml.Name{Local: `guid`},
 		Value:   value,
 	}, nil

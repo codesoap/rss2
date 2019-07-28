@@ -80,7 +80,7 @@ var xmlToRSSTestCases = []TestCase{
 						Link:        `http://liftoff.msfc.nasa.gov/news/2003/news-starcity.asp`,
 						Description: `How do Americans get ready to work with Russians aboard the International Space Station? They take a crash course in culture, language and protocol at Russia's <a href="http://howe.iki.rssi.ru/GCTC/gctc_e.htm">Star City</a>.`,
 						PubDate:     &RSSTime{time.Date(2003, 6, 3, 9, 39, 21, 0, time.FixedZone("+0000", 0))},
-						Guid: &Guid{
+						GUID: &GUID{
 							XMLName: xml.Name{``, `guid`},
 							Value:   `http://liftoff.msfc.nasa.gov/2003/06/03.html#item573`,
 						},
@@ -89,7 +89,7 @@ var xmlToRSSTestCases = []TestCase{
 						XMLName:     xml.Name{``, `item`},
 						Description: `Sky watchers in Europe, Asia, and parts of Alaska and Canada will experience a <a href="http://science.nasa.gov/headlines/y2003/30may_solareclipse.htm">partial eclipse of the Sun</a> on Saturday, May 31st.`,
 						PubDate:     &RSSTime{time.Date(2003, 5, 30, 11, 6, 42, 0, time.FixedZone("+0000", 0))},
-						Guid: &Guid{
+						GUID: &GUID{
 							XMLName: xml.Name{``, `guid`},
 							Value:   `http://liftoff.msfc.nasa.gov/2003/05/30.html#item572`,
 						},
@@ -100,7 +100,7 @@ var xmlToRSSTestCases = []TestCase{
 						Link:        `http://liftoff.msfc.nasa.gov/news/2003/news-VASIMR.asp`,
 						Description: `Before man travels to Mars, NASA hopes to design new engines that will let us fly through the Solar System more quickly.  The proposed VASIMR engine would do that.`,
 						PubDate:     &RSSTime{time.Date(2003, 5, 27, 8, 37, 32, 0, time.FixedZone("+0000", 0))},
-						Guid: &Guid{
+						GUID: &GUID{
 							XMLName: xml.Name{``, `guid`},
 							Value:   `http://liftoff.msfc.nasa.gov/2003/05/27.html#item571`,
 						},
@@ -111,7 +111,7 @@ var xmlToRSSTestCases = []TestCase{
 						Link:        `http://liftoff.msfc.nasa.gov/news/2003/news-laundry.asp`,
 						Description: `Compared to earlier spacecraft, the International Space Station has many luxuries, but laundry facilities are not one of them.  Instead, astronauts have other options.`,
 						PubDate:     &RSSTime{time.Date(2003, 5, 20, 8, 56, 2, 0, time.FixedZone("+0000", 0))},
-						Guid: &Guid{
+						GUID: &GUID{
 							XMLName: xml.Name{``, `guid`},
 							Value:   `http://liftoff.msfc.nasa.gov/2003/05/20.html#item570`,
 						},
@@ -200,7 +200,7 @@ var xmlToRSSTestCases = []TestCase{
 						XMLName: xml.Name{``, `item`},
 						Title:   `Item 1`,
 						PubDate: &RSSTime{time.Date(1993, 6, 3, 9, 39, 21, 0, time.FixedZone("-0700", -7*60*60))},
-						Guid: &Guid{
+						GUID: &GUID{
 							XMLName:     xml.Name{``, `guid`},
 							Value:       `guid with escapes: > " &`,
 							IsPermaLink: true,
@@ -243,10 +243,10 @@ func TestRenderRSS(t *testing.T) {
 	}
 	item1.PubDate = &RSSTime{time.Date(1993, 6, 3, 9, 39, 21, 0,
 		time.FixedZone("-0700", -7*60*60))}
-	if item1.Guid, err = NewGuid(`guid with escapes: > " &`); err != nil {
+	if item1.GUID, err = NewGUID(`guid with escapes: > " &`); err != nil {
 		t.Errorf(err.Error())
 	}
-	item1.Guid.IsPermaLink = true
+	item1.GUID.IsPermaLink = true
 	item1.Enclosure, err = NewEnclosure(`enclosure's url`, 42, `enclosure's type`)
 	if err != nil {
 		t.Errorf(err.Error())
