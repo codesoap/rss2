@@ -45,7 +45,7 @@ func TestParseRSSTime(t *testing.T) {
 		"Fri, 06 Sep 2002 17:08 -0700": RSSTime{time.Date(2002, 9, 7, 0, 8, 0, 0, time.UTC)},
 	}
 	for in, expected := range testCases {
-		if out, err := parseRSSTime(in); err != nil {
+		if out, err := ParseRSSTime(in); err != nil {
 			t.Errorf("Error parsing '%s': %s", in, err.Error())
 		} else if !out.Time.Equal(expected.Time) {
 			t.Errorf("Parsing '%s' yielded '%s'. Expected '%s'", in, out.Time.String(),
@@ -56,12 +56,12 @@ func TestParseRSSTime(t *testing.T) {
 
 func BenchmarkParseRSSTimeEasy(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		parseRSSTime("06 Sep 2002 17:08:00 +0000")
+		ParseRSSTime("06 Sep 2002 17:08:00 +0000")
 	}
 }
 
 func BenchmarkParseRSSTimeHard(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		parseRSSTime("Mon, 06 Sep 02 17:08 GMT")
+		ParseRSSTime("Mon, 06 Sep 02 17:08 GMT")
 	}
 }

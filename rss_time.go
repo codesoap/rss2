@@ -23,7 +23,7 @@ func (t *RSSTime) UnmarshalXML(decoder *xml.Decoder,
 	start xml.StartElement) (err error) {
 	var value string
 	if err = decoder.DecodeElement(&value, &start); err == nil {
-		*t, err = parseRSSTime(value)
+		*t, err = ParseRSSTime(value)
 	}
 	return
 }
@@ -34,7 +34,7 @@ func (t RSSTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 
 // This is a RFC822 time parser, with the difference, that four digit
 // years are allowed.
-func parseRSSTime(in string) (out RSSTime, err error) {
+func ParseRSSTime(in string) (out RSSTime, err error) {
 	tmp := []byte(in)
 	// TODO: Research whether multiple consecutive whitspaces are legal
 	//       and reduce them to single ' ', if so.
