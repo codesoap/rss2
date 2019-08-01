@@ -7,17 +7,17 @@ import (
 
 // A single rss item. At least Title or Description must be present.
 type Item struct {
-	XMLName     xml.Name   `xml:"item"`
-	Title       string     `xml:"title,omitempty"`
-	Link        string     `xml:"link,omitempty"`
-	Description string     `xml:"description,omitempty"`
-	Author      string     `xml:"author,omitempty"`
-	Category    *Category  `xml:"category,omitempty"`
-	Comments    string     `xml:"comments,omitempty"`
-	Enclosure   *Enclosure `xml:"enclosure,omitempty"`
-	GUID        *GUID      `xml:"guid,omitempty"`
-	PubDate     *RSSTime   `xml:"pubDate,omitempty"`
-	Source      *Source    `xml:"source,omitempty"`
+	XMLName     xml.Name    `xml:"item"`
+	Title       string      `xml:"title,omitempty"`
+	Link        string      `xml:"link,omitempty"`
+	Description string      `xml:"description,omitempty"`
+	Author      string      `xml:"author,omitempty"`
+	Categories  []*Category `xml:"category,omitempty"`
+	Comments    string      `xml:"comments,omitempty"`
+	Enclosure   *Enclosure  `xml:"enclosure,omitempty"`
+	GUID        *GUID       `xml:"guid,omitempty"`
+	PubDate     *RSSTime    `xml:"pubDate,omitempty"`
+	Source      *Source     `xml:"source,omitempty"`
 }
 
 // Create a new rss item. Either title or description may be empty.

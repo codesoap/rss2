@@ -166,11 +166,11 @@ var xmlToRSSTestCases = []TestCase{
 				Description:   `Channel description`,
 				PubDate:       &RSSTime{time.Date(2003, 6, 10, 4, 0, 0, 0, time.FixedZone(`+0100`, 1*60*60))},
 				LastBuildDate: &RSSTime{time.Date(2003, 6, 10, 9, 41, 0, 0, time.FixedZone(`-0700`, -7*60*60))},
-				Category: &Category{
+				Categories: []*Category{&Category{
 					XMLName: xml.Name{``, `category`},
 					Value:   `Channels domain`,
 					Domain:  `foo domain with escape: >`,
-				},
+				}},
 				Cloud: &Cloud{
 					XMLName:           xml.Name{``, `cloud`},
 					Domain:            `rpc.sys.com`,
@@ -270,10 +270,12 @@ func TestRenderRSS(t *testing.T) {
 		time.FixedZone(`+0100`, 1*60*60))}
 	channel.LastBuildDate = &RSSTime{time.Date(2003, 6, 10, 9, 41, 0, 0,
 		time.FixedZone(`-0700`, -7*60*60))}
-	if channel.Category, err = NewCategory(`Categorie's domain`); err != nil {
+	category, err := NewCategory(`Categorie's domain`)
+	if err != nil {
 		t.Errorf(err.Error())
 	}
-	channel.Category.Domain = `foo domain with escape: >`
+	category.Domain = `foo domain with escape: >`
+	channel.Categories = []*Category{category}
 	channel.Cloud, err = NewCloud(`rpc.sys.com`, 80, `/RPC2`, `pingMe`, `soap`)
 	if err != nil {
 		t.Errorf(err.Error())

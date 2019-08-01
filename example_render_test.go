@@ -15,10 +15,12 @@ func Example_renderRSS() {
 	item, _ := rss2.NewItem(`Title of my RSS item`, ``)
 	item.PubDate = &rss2.RSSTime{time.Date(2019, 6, 3, 9, 39, 21, 0, time.UTC)}
 
+	category, _ := rss2.NewCategory(`MSFT`)
+	category.Domain = `http://www.fool.com/cusips`
+
 	channel, _ := rss2.NewChannel(`Channel title`, `channel.link.net`,
 		`Channel description`)
-	channel.Category, _ = rss2.NewCategory(`Channel's category`)
-	channel.Category.Domain = `Channel category domain`
+	channel.Categories = []*rss2.Category{category}
 	channel.Items = []*rss2.Item{item}
 
 	// All created RSS elements are structs with XML tags.
