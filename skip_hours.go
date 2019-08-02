@@ -19,7 +19,7 @@ func NewSkipHours(hours []int) (*SkipHours, error) {
 		}
 	}
 	return &SkipHours{
-		XMLName: xml.Name{Local: `channel`},
+		XMLName: xml.Name{Local: `skipHours`},
 		Hours:   hours,
 	}, nil
 }

@@ -26,7 +26,7 @@ func NewItem(title, description string) (*Item, error) {
 		return nil, fmt.Errorf(`cannot create item with empty title and description`)
 	}
 	return &Item{
-		XMLName:     xml.Name{Local: `channel`},
+		XMLName:     xml.Name{Local: `item`},
 		Title:       title,
 		Description: description,
 	}, nil
