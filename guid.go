@@ -9,7 +9,7 @@ import (
 type GUID struct {
 	XMLName     xml.Name `xml:"guid"`
 	Value       string   `xml:",chardata"`
-	IsPermaLink bool     `xml:"isPermaLink,attr,omitempty"`
+	IsPermaLink bool     `xml:"isPermaLink,attr"`
 }
 
 // Create new guid rss element.
