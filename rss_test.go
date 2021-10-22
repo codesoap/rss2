@@ -14,7 +14,7 @@ type TestCase struct {
 }
 
 var xmlToRSSTestCases = []TestCase{
-	TestCase{
+	{
 		// Taken from https://cyber.harvard.edu/rss/examples/rss2sample.xml
 		Input: `
 		<?xml version="1.0"?>
@@ -120,7 +120,7 @@ var xmlToRSSTestCases = []TestCase{
 			},
 		},
 	},
-	TestCase{
+	{
 		// A constructed test case to cover many different elements
 		Input: `
 		<?xml version="1.0" encoding="UTF-8"?>
@@ -166,7 +166,7 @@ var xmlToRSSTestCases = []TestCase{
 				Description:   `Channel description`,
 				PubDate:       &RSSTime{time.Date(2003, 6, 10, 4, 0, 0, 0, time.FixedZone(`+0100`, 1*60*60))},
 				LastBuildDate: &RSSTime{time.Date(2003, 6, 10, 9, 41, 0, 0, time.FixedZone(`-0700`, -7*60*60))},
-				Categories: []*Category{&Category{
+				Categories: []*Category{{
 					XMLName: xml.Name{``, `category`},
 					Value:   `Channels domain`,
 					Domain:  `foo domain with escape: >`,
