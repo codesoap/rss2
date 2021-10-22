@@ -5,7 +5,8 @@ import (
 	"fmt"
 )
 
-// An rss channel's textInput element. All sub-elements must be present.
+// TextInput represents a Channel's textInput element. All sub-elements
+// must be present.
 type TextInput struct {
 	XMLName     xml.Name `xml:"textInput"`
 	Title       string   `xml:"title"`
@@ -14,7 +15,7 @@ type TextInput struct {
 	Link        string   `xml:"link"`
 }
 
-// Create new textInput rss element.
+// NewTextInput creates a new TextInput element.
 func NewTextInput(title, description, name, link string) (*TextInput, error) {
 	if len(title) == 0 || len(description) == 0 || len(name) == 0 ||
 		len(link) == 0 {

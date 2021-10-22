@@ -5,14 +5,14 @@ import (
 	"fmt"
 )
 
-// An rss item's source element. URL must be present.
+// Source represents an Item's source element. URL must be present.
 type Source struct {
 	XMLName xml.Name `xml:"source"`
 	Value   string   `xml:",chardata"`
 	URL     string   `xml:"url,attr"`
 }
 
-// Create new source rss element.
+// NewSource creates a new Source element.
 func NewSource(value, url string) (*Source, error) {
 	if len(value) == 0 || len(url) == 0 {
 		return nil, fmt.Errorf(`empty string passed to NewSource()`)

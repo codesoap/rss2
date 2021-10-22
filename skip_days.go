@@ -5,13 +5,13 @@ import (
 	"time"
 )
 
-// rss channel's skipDays element.
+// SkipDays represents a Channel's skipDays element.
 type SkipDays struct {
 	XMLName xml.Name `xml:"skipDays"`
 	Days    []string `xml:"day"`
 }
 
-// Create new skipDays rss element.
+// NewSkipDays creates a new SkipDays element.
 func NewSkipDays(days []time.Weekday) *SkipDays {
 	dayNames := map[time.Weekday]string{
 		time.Sunday:    `Sunday`,

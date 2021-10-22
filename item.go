@@ -5,7 +5,8 @@ import (
 	"fmt"
 )
 
-// A single rss item. At least Title or Description must be present.
+// Item represents an rss item. At least Title or Description must be
+// present.
 type Item struct {
 	XMLName     xml.Name    `xml:"item"`
 	Title       string      `xml:"title,omitempty"`
@@ -20,7 +21,7 @@ type Item struct {
 	Source      *Source     `xml:"source,omitempty"`
 }
 
-// Create a new rss item. Either title or description may be empty.
+// NewItem creates a new Item. Either title or description may be empty.
 func NewItem(title, description string) (*Item, error) {
 	if len(title) == 0 && len(description) == 0 {
 		return nil, fmt.Errorf(`cannot create item with empty title and description`)

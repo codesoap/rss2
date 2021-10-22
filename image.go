@@ -5,8 +5,8 @@ import (
 	"fmt"
 )
 
-// An rss channel's image. URL, Title and Link must be present.
-// Width must not exceed 144. Height must not exceed 400.
+// Image represents a Channel's image. URL, Title and Link must be
+// present. Width must not exceed 144. Height must not exceed 400.
 type Image struct {
 	XMLName     xml.Name `xml:"image"`
 	URL         string   `xml:"url"`
@@ -17,7 +17,7 @@ type Image struct {
 	Description string   `xml:"description,omitempty"`
 }
 
-// Create new rss image.
+// NewImage creates new Image.
 func NewImage(url, title, link string) (*Image, error) {
 	if len(url) == 0 || len(title) == 0 || len(link) == 0 {
 		return nil, fmt.Errorf(`empty string passed to NewImage()`)

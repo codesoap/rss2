@@ -2,7 +2,7 @@ package rss2
 
 import "encoding/xml"
 
-// Representation of an rss feed. All fields are mandatory.
+// RSS represents an rss feed. All fields are mandatory.
 // Version must be "2.0" for this library.
 type RSS struct {
 	XMLName xml.Name `xml:"rss"`
@@ -10,7 +10,7 @@ type RSS struct {
 	Channel *Channel `xml:"channel"`
 }
 
-// Create a new rss feed.
+// NewRSS creates a new RSS element.
 func NewRSS(ch *Channel) *RSS {
 	return &RSS{
 		XMLName: xml.Name{Local: `rss`},

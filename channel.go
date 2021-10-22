@@ -5,7 +5,8 @@ import (
 	"fmt"
 )
 
-// rss channel element. Title, Link and Description are required.
+// Channel represents an rss channel element. Title, Link and
+// Description are required.
 type Channel struct {
 	XMLName        xml.Name    `xml:"channel"`
 	Title          string      `xml:"title"`
@@ -30,7 +31,7 @@ type Channel struct {
 	Items          []*Item     `xml:"item,omitempty"`
 }
 
-// Create a new rss channel.
+// NewChannel creates a new Channel.
 func NewChannel(title, link, description string) (*Channel, error) {
 	if len(title) == 0 || len(link) == 0 || len(description) == 0 {
 		return nil, fmt.Errorf(`empty string passed to NewChannel()`)

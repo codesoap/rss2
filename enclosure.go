@@ -5,8 +5,8 @@ import (
 	"fmt"
 )
 
-// An rss item's enclosure element. All attributes must be present.
-// Type must be a MIME type.
+// Enclosure represents an Item's enclosure element. All attributes must
+// be present. Type must be a MIME type.
 type Enclosure struct {
 	XMLName xml.Name `xml:"enclosure"`
 	URL     string   `xml:"url,attr"`
@@ -14,7 +14,7 @@ type Enclosure struct {
 	Type    string   `xml:"type,attr"`
 }
 
-// Create new type rss element.
+// NewEnclosure creates a new Enclosure element.
 func NewEnclosure(url string, length int, t string) (*Enclosure, error) {
 	if len(url) == 0 || len(t) == 0 {
 		return nil, fmt.Errorf(`empty string passed to NewEnclosure()`)

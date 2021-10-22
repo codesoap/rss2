@@ -5,14 +5,15 @@ import (
 	"fmt"
 )
 
-// An rss channel's or item's category. Domain is an optional attribute.
+// Category represents a Channel's or Item's category. Domain is
+// optional.
 type Category struct {
 	XMLName xml.Name `xml:"category"`
 	Value   string   `xml:",chardata"`
 	Domain  string   `xml:"domain,attr,omitempty"`
 }
 
-// Create new category rss element.
+// NewCategory creates a new Category.
 func NewCategory(value string) (*Category, error) {
 	if len(value) == 0 {
 		return nil, fmt.Errorf(`empty string passed to NewCategory()`)

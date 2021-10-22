@@ -19,6 +19,7 @@ type RSSTime struct {
 	Time time.Time
 }
 
+// UnmarshalXML unmarshals an RSSTime element.
 func (t *RSSTime) UnmarshalXML(decoder *xml.Decoder,
 	start xml.StartElement) (err error) {
 	var value string
@@ -28,12 +29,13 @@ func (t *RSSTime) UnmarshalXML(decoder *xml.Decoder,
 	return
 }
 
+// MarshalXML marshals an RSSTime element.
 func (t RSSTime) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	return e.EncodeElement(t.Time.Format("02 Jan 2006 15:04:05 -0700"), start)
 }
 
-// This is a RFC822 time parser, with the difference, that four digit
-// years are allowed.
+// ParseRSSTime parses a time as specified in RFC822, with the
+// difference, that four digit years are allowed.
 func ParseRSSTime(in string) (out RSSTime, err error) {
 	tmp := []byte(in)
 	// TODO: Research whether multiple consecutive whitspaces are legal
